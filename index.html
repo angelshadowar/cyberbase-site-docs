@@ -184,6 +184,59 @@ footer{
 
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 48px}
 
+/* Leagues */
+.leagues-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.league-card{background:var(--bg3);border:1px solid var(--border);padding:28px 20px;text-align:center;position:relative;overflow:hidden;transition:all 0.3s}
+.league-card:hover{transform:translateY(-4px)}
+.league-card.initiate{border-color:#555}
+.league-card.initiate:hover{border-color:#aaa;box-shadow:0 0 24px rgba(200,200,200,0.15)}
+.league-card.operative{border-color:#00b4c8}
+.league-card.operative:hover{box-shadow:0 0 24px rgba(0,229,255,0.25)}
+.league-card.elite{border-color:#c0186e}
+.league-card.elite:hover{box-shadow:0 0 24px rgba(255,45,120,0.25)}
+.league-card.apex{border-color:#b8860b}
+.league-card.apex:hover{box-shadow:0 0 24px rgba(242,201,76,0.3)}
+.league-badge{width:64px;height:64px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:36px;border-radius:8px}
+.league-card.initiate .league-badge{background:rgba(150,150,150,0.1)}
+.league-card.operative .league-badge{background:rgba(0,229,255,0.1)}
+.league-card.elite .league-badge{background:rgba(255,45,120,0.1)}
+.league-card.apex .league-badge{background:rgba(242,201,76,0.1)}
+.league-name{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:2px;margin-bottom:8px}
+.league-card.initiate .league-name{color:#aaa}
+.league-card.operative .league-name{color:#00e5ff}
+.league-card.elite .league-name{color:#ff2d78}
+.league-card.apex .league-name{color:var(--gold)}
+.league-boost{font-family:'Share Tech Mono',monospace;font-size:13px;margin-bottom:8px}
+.league-card.initiate .league-boost{color:#888}
+.league-card.operative .league-boost{color:#00e5ff}
+.league-card.elite .league-boost{color:#ff2d78}
+.league-card.apex .league-boost{color:var(--gold)}
+.league-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.league-cta{margin-top:24px;padding:20px 28px;background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.2);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.league-cta p{font-size:13px;color:var(--text);line-height:1.7;flex:1}
+.league-cta strong{color:var(--green)}
+
+/* Tournament */
+.tournament-card{background:var(--bg3);border:1px solid #f2c94c44;padding:32px;position:relative;overflow:hidden}
+.tournament-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#ff8a00,var(--gold))}
+.tournament-live{display:inline-flex;align-items:center;gap:8px;background:rgba(255,45,45,0.15);border:1px solid rgba(255,45,45,0.4);padding:6px 14px;font-family:'Share Tech Mono',monospace;font-size:11px;color:#ff4444;letter-spacing:2px;margin-bottom:20px}
+.tournament-live::before{content:'';width:8px;height:8px;border-radius:50%;background:#ff4444;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.tournament-title{font-family:'Rajdhani',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:700;color:var(--gold);margin-bottom:8px;letter-spacing:1px}
+.tournament-end{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:28px}
+.tournament-prizes{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.prize-row{display:flex;align-items:center;gap:16px;padding:14px 18px;background:rgba(0,0,0,0.3);border:1px solid var(--border)}
+.prize-row.gold{border-color:#f2c94c55;background:rgba(242,201,76,0.06)}
+.prize-row.silver{border-color:#88888855}
+.prize-row.bronze{border-color:#cd7f3255}
+.prize-place{font-family:'Share Tech Mono',monospace;font-size:18px;width:32px}
+.prize-usdc{font-family:'Share Tech Mono',monospace;font-size:15px;color:var(--gold);font-weight:700;min-width:90px}
+.prize-extra{font-size:13px;color:var(--muted)}
+.prize-extra span{color:var(--cyan)}
+.tournament-nft{margin-top:16px;padding:16px 20px;border:1px solid rgba(242,201,76,0.3);background:rgba(242,201,76,0.04);display:flex;align-items:center;gap:12px}
+.tournament-nft p{font-size:13px;color:var(--muted);line-height:1.5}
+.tournament-nft strong{color:var(--gold)}
+
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:none}
 
@@ -205,6 +258,8 @@ footer{
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#rewards">Rewards</a>
+    <a href="#leagues">Leagues</a>
+    <a href="#tournament">Tournament</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#join">Join</a>
   </div>
@@ -309,6 +364,88 @@ footer{
           <p>Post videos and threads on X (Twitter) — <strong>top creators receive USDC</strong> directly to their wallet.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEAGUES -->
+<section id="leagues">
+  <span class="section-tag reveal">// pvp leagues</span>
+  <h2 class="section-title reveal">Climb the ranks.<br><span>Boost your $NEURO</span></h2>
+  <p class="reveal" style="font-size:14px;color:var(--muted);max-width:600px;margin-bottom:36px;line-height:1.8">
+    Your league tier directly affects how much <strong style="color:var(--green)">$NEURO</strong> you receive at the end of the season.
+    The higher your league — the bigger your share. Arena is not just PVP — it's your multiplier.
+  </p>
+  <div class="leagues-grid">
+    <div class="league-card initiate reveal">
+      <div class="league-badge">🔘</div>
+      <div class="league-name">INITIATE</div>
+      <div class="league-boost">Base distribution</div>
+      <div class="league-desc">Starting point. Every player begins here. Climb to unlock bigger rewards.</div>
+    </div>
+    <div class="league-card operative reveal">
+      <div class="league-badge">🔷</div>
+      <div class="league-name">OPERATIVE</div>
+      <div class="league-boost">+25% $NEURO boost</div>
+      <div class="league-desc">Proven in the arena. Increased token allocation at season end.</div>
+    </div>
+    <div class="league-card elite reveal">
+      <div class="league-badge">💎</div>
+      <div class="league-name">ELITE</div>
+      <div class="league-boost">+60% $NEURO boost</div>
+      <div class="league-desc">Only the dedicated reach here. Significantly larger $NEURO share.</div>
+    </div>
+    <div class="league-card apex reveal">
+      <div class="league-badge">👑</div>
+      <div class="league-name">APEX</div>
+      <div class="league-boost">+100% $NEURO boost</div>
+      <div class="league-desc">The top of the food chain. Maximum token distribution. Legends only.</div>
+    </div>
+  </div>
+  <div class="league-cta reveal">
+    <p>
+      Don't sleep on the arena. <strong>Leagues reset each season</strong> — every new season is a fresh start.
+      Win fights, climb tiers, and <strong>double your $NEURO allocation</strong> by reaching APEX before the season ends.
+    </p>
+    <a href="https://cyberbasegame.vercel.app" target="_blank" class="btn-primary" style="white-space:nowrap">Fight Now →</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOURNAMENT -->
+<section id="tournament">
+  <span class="section-tag reveal">// active tournament</span>
+  <h2 class="section-title reveal">Current event</h2>
+  <div class="tournament-card reveal">
+    <div class="tournament-live">● LIVE NOW</div>
+    <div class="tournament-title">TOURNAMENT 2: BLOODBATH</div>
+    <div class="tournament-end">⏳ Ends: June 30, 2026 &nbsp;·&nbsp; Winner takes all</div>
+    <div class="tournament-prizes">
+      <div class="prize-row gold">
+        <span class="prize-place">🥇</span>
+        <span class="prize-usdc">$30 USDC</span>
+        <span class="prize-extra"><span>5000 NP</span> + 40 ⚡ bit</span>
+      </div>
+      <div class="prize-row silver">
+        <span class="prize-place">🥈</span>
+        <span class="prize-usdc">$20 USDC</span>
+        <span class="prize-extra"><span>3000 NP</span> + 30 ⚡ bit</span>
+      </div>
+      <div class="prize-row bronze">
+        <span class="prize-place">🥉</span>
+        <span class="prize-usdc">$15 USDC</span>
+        <span class="prize-extra"><span>1500 NP</span> + 20 ⚡ bit</span>
+      </div>
+    </div>
+    <div class="tournament-nft">
+      <span style="font-size:28px">🔫</span>
+      <p><strong>GRAND PRIZE NFT:</strong> Legendary Pistol — Collectible ID-777. Unlockable. The Collectible's Heart. Awarded to the overall winner.</p>
+    </div>
+    <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://cyberbasegame.vercel.app" target="_blank" class="btn-primary">Enter Tournament →</a>
     </div>
   </div>
 </section>
